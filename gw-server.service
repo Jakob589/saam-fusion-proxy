@@ -1,0 +1,11 @@
+[Unit]
+Description=SAAM gateway proxy from RPC to MQTT
+
+[Service]
+Environment=PYTHONUNBUFFERED=true
+ExecStart=/home/administrator/saam-fusion-proxy/gw-server.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
