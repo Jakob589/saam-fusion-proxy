@@ -12,8 +12,9 @@ class GwRPC(object):
 		except:
 			return False
 
-client = mqtt.Client(client_id="samm-gw")
+client = mqtt.Client()
 client.connect("localhost")
+client.loop_start()
 
 s = zerorpc.Server(GwRPC())
 s.bind("tcp://0.0.0.0:4242")
