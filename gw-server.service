@@ -1,5 +1,6 @@
 [Unit]
 Description=SAAM gateway proxy from RPC to MQTT
+After=network-online.target
 
 [Service]
 Environment=PYTHONUNBUFFERED=true
