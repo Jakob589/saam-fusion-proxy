@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import csv
 import time
 import socket
@@ -25,6 +27,8 @@ service = get_service(service_name)
 c = zerorpc.Client()
 c.connect("tcp://%s" % service)
 
-for request in range (10):
-	print(c.set_data("id", "feature", {"some": "thing"}))
-	time.sleep(1)
+machine_id = open('/etc/machine-id').readline().strip()
+
+while True:
+	print(c.set_health(machine_id))
+	time.sleep(60)
